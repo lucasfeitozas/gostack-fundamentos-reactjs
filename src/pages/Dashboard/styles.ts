@@ -62,7 +62,13 @@ export const TableContainer = styled.section`
       font-size: 16px;
       line-height: 24px;
     }
-
+    tr {
+      transition: transform 0.2s;
+      &:hover {
+        transform: translateX(5px);
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+      }
+    }
     td {
       padding: 20px 32px;
       border: 0;

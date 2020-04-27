@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import filesize from 'filesize';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from '../../components/Header';
 import FileList from '../../components/FileList';
 import Upload from '../../components/Upload';
-
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
 import alert from '../../assets/alert.svg';
@@ -32,7 +32,12 @@ const Import: React.FC = () => {
         }),
       );
 
-      history.goBack();
+      toast.success('🚀 Arquivos importados com sucesso!', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setTimeout(() => {
+        history.goBack();
+      }, 2500);
     } catch (err) {
       // console.log(err.response.error);
     }
@@ -68,6 +73,7 @@ const Import: React.FC = () => {
           </Footer>
         </ImportFileContainer>
       </Container>
+      <ToastContainer />
     </>
   );
 };
